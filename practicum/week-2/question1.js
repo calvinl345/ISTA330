@@ -6,11 +6,17 @@ For example given the input array [5, 6, 1], the running sum is
 */
 
 var runningSum = function (input) {
-    const reducer = (previousValue, currentValue) =>
-        previousValue + currentValue;
-    return input.reduce(reducer);
+    const sumArray = [];
+    for (i in input) {
+        if (i == 0) {
+            sumArray[i] = input[i];
+        } else {
+            sumArray[i] = sumArray[i - 1] + input[i];
+        }
+    }
+    return sumArray;
 };
 
 //Test
-//let testQuestionOne = runningSum([5, 5]);
-//console.log(testQuestionOne);
+let testQuestionOne = runningSum([5, 6, 1]);
+console.log(testQuestionOne);
