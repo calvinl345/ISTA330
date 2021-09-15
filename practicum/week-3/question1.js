@@ -9,6 +9,6 @@ is at least twice as much as every other number
          output: true
 */
 
-var largestNumberIsAtLeastTwice = function(input) {
-   
+var largestNumberIsAtLeastTwice = function (input) {
+    console.log("test");
 };
