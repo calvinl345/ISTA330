@@ -16,8 +16,19 @@ input: [12, 6, 2, 2, 2, 0]
 output: true
 */
 
-var isMonotonic = function(input) {
-
+var isMonotonic = function (input) {
+    console.log(input);
+    let increasing = true;
+    let decreasing = true;
+    for (let i = 0; i < input.length - 1; i++) {
+        if (input[i] > input[i + 1]) {
+            increasing = false;
+        }
+        if (input[i] < input[i + 1]) {
+            decreasing = false;
+        }
+    }
+    return increasing || decreasing;
 };
 
-console.log('hi');
+isMonotonic([12, 6, 2, 2, 2, 3]);

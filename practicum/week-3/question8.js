@@ -12,6 +12,21 @@ input: [3,5,3,3,5,1]
 output: 3
 */
 
-var d_integer = function(input) {
-
+var d_integer = function (input) {
+    let counts = {};
+    for (const num of input) {
+        //console.log(num);
+        counts[num] = counts[num] ? counts[num] + 1 : 1;
+    }
+    output = -1;
+    for (const [key, value] of Object.entries(counts)) {
+        console.log(`${key}: ${value}`);
+        if (key == value && value > output) {
+            output = value;
+        }
+    }
+    console.log(output);
+    console.log("###");
+    return output;
 };
+d_integer([3, 5, 3, 3, 5, 1]);

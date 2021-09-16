@@ -12,6 +12,27 @@ Example:
  output: true
 */
 
-var hasDuplicates = function(input) {
+var hasDuplicates = (input) => {
+    let unique_input = new Set(input);
+    //console.log(input);
+    //console.log(unique_input);
 
+    if (unique_input.size < input.length) {
+        //console.log("true");
+        return true;
+    } else {
+        //console.log("true");
+        return false;
+    }
+
+    //let result = false;
+    //let findDuplicates = (input) =>
+    //    input.filter((item, index) => input.indexOf(item) != index);
+    //console.log(findDuplicates(input));
+    //if (findDuplicates(input) > 1) {
+    //    result = true;
+    //}
+    //return result;
 };
+
+//hasDuplicates([3, 5, 90, 21, 3]);
