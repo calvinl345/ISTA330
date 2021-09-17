@@ -12,18 +12,36 @@ The groups are: [1, 10], [2, 11], [3], [4], [5], [6], [7], [8], [9]
 so there are two groups with the largest size.
 */
 
-var largestGroupsCount = (n) => {
-    groups = [];
-    for (let i = 0; i < n; i++) {
-        let group = [];
-        group.push(i);
-        arr_sum = Array.from(n.toString())
-            .map(Number)
-            .reduce((val2, val2) => val1 + val2);
-        if (arr_sum == i) {
-            group.push(n[i]);
-        }
-        groups.push(group);
+const largestGroupsCount = (n) => {
+    let groups = {};
+    let lengths = [];
+    for (let i = 1; i < n + 1; i++) {
+        groups[i] = [];
     }
-    console.log(groups);
+    for (let i = 1; i < n + 1; i++) {
+        value = i;
+        sum = 0;
+        while (value) {
+            sum += value % 10;
+            value = Math.floor(value / 10);
+        }
+        //console.log(sum);
+        groups[sum].push(i);
+        lengths.push(groups[sum].length);
+    }
+    const countArrayOccurences = (arr) => {
+        const counts = {};
+        for (const num of arr) {
+            counts[num] = counts[num] ? counts[num] + 1 : 1;
+        }
+        return counts;
+    };
+    //console.log(groups);
+    //console.log(lengths);
+    let counts = countArrayOccurences(lengths);
+    //console.log(counts);
+    let countsArr = Object.keys(counts);
+    largestKey = Math.max(...countsArr);
+    return counts[largestKey];
 };
+//console.log(largestGroupsCount(12));

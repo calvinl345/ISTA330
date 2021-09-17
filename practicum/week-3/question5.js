@@ -17,7 +17,7 @@ output: true
 */
 
 var isMonotonic = function (input) {
-    console.log(input);
+    //console.log(input);
     let increasing = true;
     let decreasing = true;
     for (let i = 0; i < input.length - 1; i++) {

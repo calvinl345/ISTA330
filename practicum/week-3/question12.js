@@ -8,6 +8,7 @@ F(n) = F(n - 1) + F(n - 2), for n > 1.
 Given n, calculate F(n).
 */
 
-var F = function(n) {
-
+var F = (n) => {
+    if (n <= 2) return 1;
+    return F(n - 1) + F(n - 2);
 };

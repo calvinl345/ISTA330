@@ -20,13 +20,13 @@ var d_integer = function (input) {
     }
     output = -1;
     for (const [key, value] of Object.entries(counts)) {
-        console.log(`${key}: ${value}`);
+        //console.log(`${key}: ${value}`);
         if (key == value && value > output) {
             output = value;
         }
     }
-    console.log(output);
-    console.log("###");
+    //console.log(output);
+    //console.log("###");
     return output;
 };
 d_integer([3, 5, 3, 3, 5, 1]);
