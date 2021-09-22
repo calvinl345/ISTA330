@@ -1,56 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="question">
-        Using the array flowers below, 
-        display the flowers. Use the div 'flowersDiv'.
-        You should display the flowers in two rows,
-        each row containing 4 flowers.
-        For each flower, you should show the image
-        and under the image display its name.
-    </div>
-    <div id='flowersDiv'>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="question">
+            Using the array flowers below, display the flowers. Use the div
+            'flowersDiv'. You should display the flowers in two rows, each row
+            containing 4 flowers. For each flower, you should show the image and
+            under the image display its name.
+        </div>
+        <div id="flowersDiv">
+            <table></table>
+        </div>
 
-    </div>
-    <script>
-        /*
-           Using the array flowers below, 
-           display the flowers. Use the div 'flowersDiv'.
-           You should display the flowers in two rows,
-           each row containing 4 flowers.
-           For each flower, you should show the image
-           and under the image display its name.
-        */
-       class Flower {
-           constructor(name, pictureName) {
-               this.name = name;
-               this.picture = pictureName;
-           }
-       }
-       let daffodil = new Flower('Daffodil', 'daffodil.png');
-       let cherryblossom = new Flower('Cherry blossom', 'cherryblossom.png');
-       let lily = new Flower('Lily', 'lily.jpg');
-       let daisy = new Flower('Daisy', 'daisy.jpg');
-       let sunflower = new Flower('Sunflower', 'sunflower.png');
-       let tulip = new Flower('Tulip', 'tulip.png');
-       let rose = new Flower('Rose', 'rose.png');
-       let waterlily = new Flower('Water lily', 'waterlily.png');
-       
-       let flowers = [
-             daffodil,
-             cherryblossom,
-             lily,
-             daisy,
-             sunflower,
-             tulip,
-             rose,
-             waterlily
-       ];
-    </script>
-</body>
+        <script>
+            /*
+                Using the array flowers below,
+                display the flowers. Use the div 'flowersDiv'.
+                You should display the flowers in two rows,
+                each row containing 4 flowers.
+                For each flower, you should show the image
+                and under the image display its name.
+             */
+            let showFlower = (flowers) => {
+                let flowersDiv = document.getElementById("flowersDiv");
+                let table = flowersDiv.firstElementChild;
+                let row1 = table.insertRow(0);
+                let row2 = table.insertRow(1);
+                for (i = 0; i < flowers.length; i++) {
+                    row1.innerHTML = flowers[i].name;
+                    row1.innerHTML = flowers[i].picture;
+                }
+            };
+            class Flower {
+                constructor(name, pictureName) {
+                    this.name = name;
+                    this.picture = pictureName;
+                }
+            }
+            let daffodil = new Flower("Daffodil", "daffodil.png");
+            let cherryblossom = new Flower(
+                "Cherry blossom",
+                "cherryblossom.png"
+            );
+            let lily = new Flower("Lily", "lily.jpg");
+            let daisy = new Flower("Daisy", "daisy.jpg");
+            let sunflower = new Flower("Sunflower", "sunflower.png");
+            let tulip = new Flower("Tulip", "tulip.png");
+            let rose = new Flower("Rose", "rose.png");
+            let waterlily = new Flower("Water lily", "waterlily.png");
+
+            let flowers = [
+                daffodil,
+                cherryblossom,
+                lily,
+                daisy,
+                sunflower,
+                tulip,
+                rose,
+                waterlily,
+            ];
+            console.log(flowers);
+            showFlower(flowers);
+        </script>
+    </body>
 </html>

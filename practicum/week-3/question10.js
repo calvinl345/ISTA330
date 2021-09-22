@@ -57,3 +57,4 @@ var minPairs = function (input) {
     return difflist;
 };
 minPairs([1, -5, -10, 24, 19, -4, -14, 23]);
+// outpt: [[-5, -4], [23, 24]]
