@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<<<<<<< HEAD
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
         <title>Document</title>
     </head>
     <body>
@@ -29,11 +29,20 @@
             let showFlower = (flowers) => {
                 let flowersDiv = document.getElementById("flowersDiv");
                 let table = flowersDiv.firstElementChild;
-                let row1 = table.insertRow(0);
-                let row2 = table.insertRow(1);
+                let row1 = table.insertRow();
+                let row2 = table.insertRow();
                 for (i = 0; i < flowers.length; i++) {
-                    row1.innerHTML = flowers[i].name;
-                    row1.innerHTML = flowers[i].picture;
+                    //let figure = `<image src='${flowers[i].picture}'>`;
+                    let figure = `<td><figure>
+                                        <img src='${flowers[i].picture}'
+                                            alt="${flowers[i].name}">
+                                        <figcaption>${flowers[i].name}</figcaption>
+                                </figure></td>`;
+                    if (i < 4) {
+                        row1.innerHTML += figure;
+                    } else {
+                        row2.innerHTML += figure;
+                    }
                 }
             };
             class Flower {
@@ -42,17 +51,38 @@
                     this.picture = pictureName;
                 }
             }
-            let daffodil = new Flower("Daffodil", "daffodil.png");
+            let daffodil = new Flower(
+                "Daffodil",
+                "https://habahram.blob.core.windows.net/flowers/daffodil.jpg"
+            );
             let cherryblossom = new Flower(
                 "Cherry blossom",
-                "cherryblossom.png"
+                "https://habahram.blob.core.windows.net/flowers/cherryblossom.jpg"
             );
-            let lily = new Flower("Lily", "lily.jpg");
-            let daisy = new Flower("Daisy", "daisy.jpg");
-            let sunflower = new Flower("Sunflower", "sunflower.png");
-            let tulip = new Flower("Tulip", "tulip.png");
-            let rose = new Flower("Rose", "rose.png");
-            let waterlily = new Flower("Water lily", "waterlily.png");
+            let lily = new Flower(
+                "Lily",
+                "https://habahram.blob.core.windows.net/flowers/lily.jpg"
+            );
+            let daisy = new Flower(
+                "Daisy",
+                "https://habahram.blob.core.windows.net/flowers/daisy.jpg"
+            );
+            let sunflower = new Flower(
+                "Sunflower",
+                "https://habahram.blob.core.windows.net/flowers/sunflower.jpg"
+            );
+            let tulip = new Flower(
+                "Tulip",
+                "https://habahram.blob.core.windows.net/flowers/tulip.jpg"
+            );
+            let rose = new Flower(
+                "Rose",
+                "https://habahram.blob.core.windows.net/flowers/rose.jpg"
+            );
+            let waterlily = new Flower(
+                "Water lily",
+                "https://habahram.blob.core.windows.net/flowers/waterlily.jpg"
+            );
 
             let flowers = [
                 daffodil,
@@ -69,59 +99,3 @@
         </script>
     </body>
 </html>
-=======
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div id="question">
-        Using the array flowers below, 
-        display the flowers. Use the div 'flowersDiv'.
-        You should display the flowers in two rows,
-        each row containing 4 flowers.
-        For each flower, you should show the image
-        and under the image display its name.Your webpage should be responsive.
-    </div>
-    <div id='flowersDiv'>
-
-    </div>
-    <script>
-        /*
-           Using the array flowers below, 
-           display the flowers. Use the div 'flowersDiv'.
-           You should display the flowers in two rows,
-           each row containing 4 flowers.
-           For each flower, you should show the image
-           and under the image display its name.
-        */
-       class Flower {
-           constructor(name, pictureName) {
-               this.name = name;
-               this.picture = pictureName;
-           }
-       }
-       let daffodil = new Flower('Daffodil', 'https://habahram.blob.core.windows.net/flowers/daffodil.jpg');
-       let cherryblossom = new Flower('Cherry blossom', 'https://habahram.blob.core.windows.net/flowers/cherryblossom.jpg');
-       let lily = new Flower('Lily', 'https://habahram.blob.core.windows.net/flowers/lily.jpg');
-       let daisy = new Flower('Daisy', 'https://habahram.blob.core.windows.net/flowers/daisy.jpg');
-       let sunflower = new Flower('Sunflower', 'https://habahram.blob.core.windows.net/flowers/sunflower.jpg');
-       let tulip = new Flower('Tulip', 'https://habahram.blob.core.windows.net/flowers/tulip.jpg');
-       let rose = new Flower('Rose', 'https://habahram.blob.core.windows.net/flowers/rose.jpg');
-       let waterlily = new Flower('Water lily', 'https://habahram.blob.core.windows.net/flowers/waterlily.jpg');
-       
-       let flowers = [
-             daffodil,
-             cherryblossom,
-             lily,
-             daisy,
-             sunflower,
-             tulip,
-             rose,
-             waterlily
-       ];
-    </script>
-</body>
-</html>
->>>>>>> 348368257c3c2b1e75cb78364e7d04f7ddeb7ca1
