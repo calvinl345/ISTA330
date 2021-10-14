@@ -81,7 +81,7 @@
                     }
                 }
             };
-            let clickFigure = (e) => {
+            /*let clickFigure = (e) => {
                 //get flower names and sort
                 let figures = document.getElementsByTagName("figure");
                 let nameList = [];
@@ -129,6 +129,48 @@
                 flowersDiv.removeChild(flowersDiv.firstElementChild);
                 row1.innerHTML += row1str;
                 row2.innerHTML += row2str;
+            };*/
+            const clickFigure = (e) => {
+                //store all the flowers
+                const allFlowers = [
+                    ...document.querySelectorAll("#flowersDiv figure"),
+                ];
+                const allFlowersMapSorted = allFlowers
+                    .map((elem) => {
+                        return { element: elem.outerHTML, id: elem.id };
+                    })
+                    .sort((a, b) => a.id.localeCompare(b.id));
+
+                //save the selected elem
+                const selectedFigure = e.target.parentElement.outerHTML;
+                const selectedFigureId = e.target.parentElement.id;
+
+                //clear all tbl td elems
+                const allElems = [...document.querySelectorAll("td figure")];
+                allElems.forEach((elem) => elem.remove());
+
+                //place selected item in first td elem
+                document.querySelector("#td_0").innerHTML = selectedFigure;
+
+                //what's next in the arr?
+                const nextElem =
+                    allFlowersMapSorted
+                        .map((e) => e.id)
+                        .indexOf(selectedFigureId) + 1;
+
+                //get arr of all of the next elements. Concat the entire sorted array after our sliced arr
+                //This is too big, but since we are looping the td elems it shouldn't matter
+                const nextElems = [
+                    ...allFlowersMapSorted.slice(nextElem),
+                    ...allFlowersMapSorted,
+                ];
+
+                //loop the td elems and change the td content
+                document
+                    .querySelectorAll("#flowersDiv td:not(#td_0)")
+                    .forEach((e, i) => {
+                        e.innerHTML = nextElems[i]?.element || "";
+                    });
             };
 
             class Flower {
