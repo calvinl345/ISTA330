@@ -13,6 +13,7 @@
 7. [Week 7](practicum/week-7/index.html)
 8. [Week 8](practicum/week-8/index.html)
 9. [Week 9](practicum/week-9/index.html)
+10. [Week 10](practicum/week-10/index.html)
 
 
 
