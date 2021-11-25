@@ -19,8 +19,6 @@ output: 4 because the following partition has the highest number of balanced sub
   for any given string. Here is the function that does that. You can call this function in your 
   maxBalanceNumber function.
 */
-<<<<<<< HEAD
-
 function allPartitions(input) {
     if (input.length === 1) {
         return [[input]];
@@ -36,24 +34,6 @@ function allPartitions(input) {
         result[i][result[i].length - 1] += input[input.length - 1];
     }
     return result.concat(newPartitions);
-=======
-function allPartitions(input){
-  if(input.length === 1) {
-    return [[input]];
-  }
-  let result = allPartitions(input.slice(0, -1));
-  let n = result.length;
-  //deep copy the result array
-  let newPartitions = JSON.parse(JSON.stringify(result));
-  for(let i = 0; i < n; i++) {
-    
-    newPartitions[i].push(input[input.length-1]);
-  }
-  for(let i = 0; i < n; i++) {
-    result[i][result[i].length-1] += input[input.length-1];
-  }
-  return result.concat(newPartitions);  
->>>>>>> 348368257c3c2b1e75cb78364e7d04f7ddeb7ca1
 }
 // Here is how you can use the utility function allPartitions:
 for (let partition of allPartitions("aba")) {

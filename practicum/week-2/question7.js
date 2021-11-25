@@ -33,5 +33,5 @@ var maxSumOfMins = function (input) {
     let pairs = findPairs(input);
     print(pairs);
     let maxSumOfPairs = findMax(pairs);
-    return maxSumOfPairs;
+    //return maxSumOfPairs;
 };
