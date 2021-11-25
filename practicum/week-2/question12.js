@@ -35,11 +35,24 @@ function allPartitions(input) {
     }
     return result.concat(newPartitions);
 }
-// Here is how you can use the utility function allPartitions:
-for (let partition of allPartitions("aba")) {
-    console.log(partition);
-}
 
 var maxBalanceNumber = function (input) {
-    let partitions = allPartitions(input);
+    let highest = 0;
+    for (let partition of allPartitions(input)) {
+        let countBalance = 0;
+        partition.forEach((part) => {
+            const split = part.split("");
+            const as = split.filter((i) => i === "a");
+            const bs = split.filter((i) => i === "b");
+
+            if (as.length === bs.length) {
+                countBalance++;
+            }
+
+            if (countBalance > highest) highest = countBalance;
+        });
+    }
+    return highest;
 };
+
+console.log(maxBalanceNumber("abaabbabab"));
