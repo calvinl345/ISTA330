@@ -7,6 +7,20 @@ input: [23, 44, 12, 4]
 output: [1, 0, 1, 2]
 */
 
-var biggerAndEven = function(input) {
+var biggerAndEven = function (input) {
+    let totals = [];
 
+    input.forEach((i) => {
+        let count = 0;
+        input.forEach((j) => {
+            if (i === j) return;
+
+            if (i < j && j % 2 == 0) {
+                count++;
+            }
+        });
+
+        totals.push(count);
+    });
+    return totals;
 };

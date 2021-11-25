@@ -8,6 +8,14 @@ output: 'hello'
 
 */
 
-var suffleString = function(input, shuffleIndices) {
+var suffleString = function (input, shuffleIndices) {
+    let shuffled = new Array(shuffleIndices.length);
 
+    const inputSplit = input.split("");
+    inputSplit.forEach((letter, index) => {
+        shuffled[shuffleIndices[index]] = letter;
+        //shuffled += input[i];
+    });
+
+    return shuffled.join("");
 };

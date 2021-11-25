@@ -11,27 +11,20 @@ output: 4
 */
 
 var maxSumOfMins = function (input) {
-    const findPairs = (arr) => {
-        var res = [],
-            l = arr.length;
-        for (var i = 0; i < l; ++i)
-            for (var j = i + 1; j < l; ++j) res.push([arr[i], arr[j]]);
-        return res;
-    };
-    //    const findMax = (pairs) => {
-    //        let max = 0;
-    //        for (i = 0; i < pairs.length; i++) {
-    //            for (var j = 0; i < pairs.length; ++j) {
-    //                let sum = Math.min(pairs[i]) + Math.min(pairs[j]);
-    //                if (sum > max) {
-    //                    max = sum;
-    //                }
-    //            }
-    //        }
-    //        return max;
-    //    };
-    let pairs = findPairs(input);
-    print(pairs);
-    let maxSumOfPairs = findMax(pairs);
-    //return maxSumOfPairs;
+    let sorted = input.sort();
+
+    var i,
+        j,
+        newSorted = [],
+        chunk = 2;
+    for (i = 0, j = sorted.length; i < j; i += chunk) {
+        newSorted.push(sorted.slice(i, i + chunk));
+    }
+
+    const result = newSorted.reduce((a, c) => {
+        a += Math.min(...c);
+        return a;
+    }, 0);
+
+    return result;
 };
